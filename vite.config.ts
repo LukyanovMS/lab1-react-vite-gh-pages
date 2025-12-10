@@ -1,14 +1,14 @@
-import { defineConfig } from 'vite'
+// vite.config.ts
+import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
-import { UserConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/lab1-react-vite-gh-pages',
+  base: '/lab1-react-vite-gh-pages/',
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: '/./src/setupTests.ts',
+    setupFiles: './src/setupTests.ts',
     css: true,
-  } as UserConfig,
-});
+  }
+})
