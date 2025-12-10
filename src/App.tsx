@@ -1,10 +1,12 @@
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import Counter from './components/Counter';
+import UserTable from './components/UserTable'
 import './App.css';
 
 function App() {
   return (
+    
     <div className="App" data-testid="app-container">
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
@@ -16,6 +18,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <Counter />
+      <UserTable />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
