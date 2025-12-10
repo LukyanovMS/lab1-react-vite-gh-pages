@@ -1,16 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import UserTable from './UserTable'
+import { vi } from 'vitest'
 
 declare global {
   // eslint-disable-next-line no-var
-  var fetch: jest.Mock
+  var fetch: ReturnType<typeof vi.fn>
 }
 
-global.fetch = jest.fn()
+global.fetch = vi.fn()
 
 describe('UserTable', () => {
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   test('renders button and does not show table initially', () => {
@@ -48,6 +49,6 @@ describe('UserTable', () => {
     render(<UserTable />)
     fireEvent.click(screen.getByText(/загрузить пользователей/i))
 
-    expect(await screen.findByText(/ошибка при загрузке/i)).toBeInTheDocument()
+    expect(await screen.findByText(/network error/i)).toBeInTheDocument()
   })
 })
